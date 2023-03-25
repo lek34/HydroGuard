@@ -76,18 +76,18 @@
 
                 <Button
                     android:id="@+id/button2"
+                    android:background="@drawable/primary_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/primary_button"
                     android:text="Login" />
 
                 <Button
                     android:id="@+id/button3"
+                    android:background="@drawable/secondary_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/secondary_button"
                     android:text="Register" />
             </LinearLayout>
 
