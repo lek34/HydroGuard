@@ -48,8 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@drawable/custom_edit"
-                    android:ems="10"
+                    style="@style/edittext"
                     android:inputType="textPersonName"
                     android:padding="15dp"
                     android:text="Username" />
