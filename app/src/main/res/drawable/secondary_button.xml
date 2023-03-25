@@ -5,6 +5,7 @@
         <solid android:color="@color/white"/>
         <stroke android:color="@color/secondary" android:width="3dp"/>
         <corners android:radius="50dp"/>
+        <size android:height="40dp"/>
     </shape>
 </item>
 </selector>
