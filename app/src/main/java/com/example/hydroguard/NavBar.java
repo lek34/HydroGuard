@@ -12,6 +12,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.hydroguard.databinding.ActivityNavBarBinding;
 
+import java.util.Objects;
+
 public class NavBar extends AppCompatActivity {
 
     private ActivityNavBarBinding binding;
@@ -19,7 +21,7 @@ public class NavBar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Objects.requireNonNull(getSupportActionBar()).hide();
         binding = ActivityNavBarBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
