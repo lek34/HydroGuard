@@ -1,5 +1,7 @@
 package com.example.hydroguard;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +20,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Profile extends Fragment {
+
+    FirebaseAuth auth;
+    Button button;
+    FirebaseUser user;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,10 +65,29 @@ public class Profile extends Fragment {
         }
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_profile,container,false);
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+        button = (Button) rootView.findViewById(R.id.btnLogout);
+        if (user == null){
+            Intent intent = new Intent(getActivity(),Login.class);
+            startActivity(intent);
+        }
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getActivity(),Login.class);
+                startActivity(intent);
+            }
+        });
+
+        return rootView;
     }
 }

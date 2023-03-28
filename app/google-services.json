@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "50154768470",
+    "project_id": "login-register-9bec2",
+    "storage_bucket": "login-register-9bec2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50154768470:android:1027ca07435bd47d5353f7",
+        "android_client_info": {
+          "package_name": "com.example.hydroguard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50154768470-3ucul42gsb53ib2n6fn2076avd8p0ooa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqHlD1kNnLqnAsZormkM1ZQfRhL2-YBp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "50154768470-3ucul42gsb53ib2n6fn2076avd8p0ooa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

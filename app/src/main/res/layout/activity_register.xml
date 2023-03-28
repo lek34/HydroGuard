@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -40,17 +41,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/regular"
-                    android:text="Username"
+                    android:text="Email"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/etUsername"
+                    android:id="@+id/etEmail"
                     style="@style/edittext"
                     android:layout_width="310dp"
+                    android:drawableLeft="@drawable/ic_baseline_email_24"
                     android:layout_height="50dp"
                     android:layout_marginBottom="20dp"
-                    android:hint="Username"
-                    android:inputType="textPersonName"/>
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"/>
 
                 <TextView
                     android:id="@+id/tvPassword"
@@ -65,10 +67,20 @@
                     android:id="@+id/etPassword"
                     style="@style/edittext"
                     android:layout_width="310dp"
+                    android:drawableLeft="@drawable/ic_baseline_lock_24"
                     android:layout_height="50dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="0dp"
                     android:hint="Password"
                     android:inputType="textPassword"/>
+
+                <TextView
+                    android:id="@+id/text_view_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etPassword"
+                    android:layout_marginLeft="25dp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tvEmail"
@@ -76,17 +88,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/regular"
-                    android:text="Email"
+                    android:text="Username"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/etEmail"
+                    android:id="@+id/etUsername"
                     style="@style/edittext"
+                    android:drawableLeft="@drawable/ic_baseline_person_24"
                     android:layout_width="310dp"
                     android:layout_height="50dp"
                     android:layout_marginBottom="20dp"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"/>
+                    android:hint="Username"
+                    android:inputType="textPersonName"/>
 
                 <TextView
                     android:id="@+id/tvPhone"
@@ -103,6 +116,7 @@
                     android:layout_width="310dp"
                     android:layout_height="50dp"
                     android:layout_marginBottom="20dp"
+                    android:drawableLeft="@drawable/ic_baseline_local_phone_24"
                     android:hint="Phone number"
                     android:inputType="phone"/>
 
@@ -116,6 +130,24 @@
                     android:layout_marginTop="40dp"
                     android:text="Register"
                     app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:background="@drawable/secondary_button"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="Login"
+                    android:textColor="@color/secondary"
+                    app:backgroundTint="@null" />
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
 
             </LinearLayout>
 
