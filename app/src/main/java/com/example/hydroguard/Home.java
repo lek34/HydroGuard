@@ -2,12 +2,15 @@ package com.example.hydroguard;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,6 +53,11 @@ public class Home extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Hide the app bar
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        // Set the SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN flag on the decor view
+        View decorView = getActivity().getWindow().getDecorView();
+        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -64,7 +72,7 @@ public class Home extends Fragment {
         // Retrieve the TextView
         TextView textViewUsername = (TextView) view.findViewById(R.id.txvUsername);
         // Retrieve the username from the intent
-        String username = getActivity().getIntent().getStringExtra("email");
+        String username = getActivity().getIntent().getStringExtra("username");
         // Set the username on the TextView
         textViewUsername.setText(username);
 
