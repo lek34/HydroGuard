@@ -84,16 +84,16 @@ public class Register extends AppCompatActivity {
                 } else {
                     textViewError.setText("");
                 }
-                mAuth.createUserWithEmailAndPassword(username, password )
+                mAuth.createUserWithEmailAndPassword(username, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.VISIBLE);
                                 if (task.isSuccessful()) {
                                     progressBar.setVisibility(View.GONE);
-                                    Toast.makeText(Register.this, "Account Created.",
-                                            Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(),Login.class);
+                                    Toast.makeText(Register.this, "Account Created.", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(),Home.class);
+                                    intent.putExtra("email", email);
                                     startActivity(intent);
                                     finish();
                                 } else {
