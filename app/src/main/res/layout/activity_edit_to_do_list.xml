@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".EditToDoList">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,7 +36,7 @@
                 android:paddingRight="40dp">
 
                 <TextView
-                    android:id="@+id/tvAddId"
+                    android:id="@+id/tvEditId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -41,15 +44,14 @@
                     android:text="Id"
                     android:textSize="18sp" />
 
-                <EditText
-                    android:id="@+id/etAddId"
+                <TextView
+                    android:id="@+id/txvID"
                     style="@style/edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/baseline_key_24"
                     android:ems="10"
-                    android:hint="Id"
-                    android:inputType="textPersonName" />
+                    android:hint="Id" />
             </LinearLayout>
 
             <LinearLayout
@@ -67,7 +69,7 @@
                     android:text="Title" />
 
                 <EditText
-                    android:id="@+id/etAddTitle"
+                    android:id="@+id/etEditTitle"
                     style="@style/edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -92,18 +94,17 @@
                     android:text="Description" />
 
                 <EditText
-                    android:id="@+id/etAddDescription"
+                    android:id="@+id/etEditDescription"
                     style="@style/edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/baseline_notes_24"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Description" />
+                    android:inputType="textPersonName" />
             </LinearLayout>
 
             <Button
-                android:id="@+id/btnAddToDoList"
+                android:id="@+id/btnEditToDoList"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -113,5 +114,6 @@
 
         </LinearLayout>
     </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

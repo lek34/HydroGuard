@@ -1,5 +1,6 @@
 package com.example.hydroguard;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,10 +8,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.hydroguard.adapter.TodolistAdapter;
 import com.example.hydroguard.model.Todolist;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -68,22 +71,33 @@ public class ToDoList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        // Inflate the fragment's layout
+        View rootView = inflater.inflate(R.layout.fragment_to_do_list, container, false);
+
+        FloatingActionButton btnTambah = (FloatingActionButton) rootView.findViewById(R.id.btnTambahh);
+        btnTambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(getActivity(), tambahToDolist.class);
+                startActivity(intent);
+            }
+        });
+
+
+        // Find the ListView by ID in the inflated layout
+        ListView listView = rootView.findViewById(R.id.listviewtodolist);
+
+        // Retrieve data from Realm
         Realm realm = Realm.getDefaultInstance();
-        //penarikan data
-        RealmResults<Todolist> toDoList =
-                realm.where(Todolist.class).findAll();
-        //menampilkan data
-//        for(User user : users){
-//            Log.d("TAG","Nama :"+user.getNama()
-//                    + ", Nomor Telp"+ user.getNotlp());
-//        }
-        ArrayList<Todolist> arrayofuser = new ArrayList<Todolist>();
-        arrayofuser.addAll(realm.copyFromRealm(toDoList));
+        RealmResults<Todolist> toDoList = realm.where(Todolist.class).findAll();
+        ArrayList<Todolist> arrayOfUser = new ArrayList<>(realm.copyFromRealm(toDoList));
         realm.close();
 
-        TodolistAdapter todolistadapter = new TodolistAdapter(getContext(), 0, arrayofuser);
-        ListView listView = (ListView) getActivity().findViewById(R.id.listviewtodolist);
-        listView.setAdapter(todolistadapter);
-        return inflater.inflate(R.layout.fragment_to_do_list, container, false);
+        // Create and set the adapter for the ListView
+        TodolistAdapter todolistAdapter = new TodolistAdapter(getContext(), 0, arrayOfUser);
+        listView.setAdapter(todolistAdapter);
+
+        return rootView;
     }
 }

@@ -15,6 +15,12 @@
         android:theme="@style/Theme.HydroGuard"
         tools:targetApi="31">
         <activity
+            android:name=".EditToDoList"
+            android:exported="false" />
+        <activity
+            android:name=".tambahToDolist"
+            android:exported="false" />
+        <activity
             android:name=".Todolistinquiry"
             android:exported="false" />
         <activity
