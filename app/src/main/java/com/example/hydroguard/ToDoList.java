@@ -37,6 +37,9 @@ public class ToDoList extends Fragment {
     private String mParam2;
 
     private TodolistAdapter adapter;
+
+    ArrayList<Todolist> arrayoftodo;
+
     public ToDoList() {
         // Required empty public constructor
     }
@@ -91,11 +94,13 @@ public class ToDoList extends Fragment {
         // Retrieve data from Realm
         Realm realm = Realm.getDefaultInstance();
         RealmResults<Todolist> toDoList = realm.where(Todolist.class).findAll();
-        ArrayList<Todolist> arrayOfUser = new ArrayList<>(realm.copyFromRealm(toDoList));
+
+        arrayoftodo = new ArrayList<Todolist>();
+        arrayoftodo.addAll(realm.copyFromRealm(toDoList));
         realm.close();
 
         // Create and set the adapter for the ListView
-        TodolistAdapter todolistAdapter = new TodolistAdapter(getContext(), 0, arrayOfUser);
+        TodolistAdapter todolistAdapter = new TodolistAdapter(getContext(), arrayoftodo);
         listView.setAdapter(todolistAdapter);
 
         return rootView;

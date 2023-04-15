@@ -1,5 +1,6 @@
 package com.example.hydroguard.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -19,9 +20,11 @@ import com.example.hydroguard.model.Todolist;
 import java.util.List;
 
 public class TodolistAdapter extends ArrayAdapter<Todolist> {
-    public TodolistAdapter(Context context, int resource, List<Todolist> objects) {
-        super(context, resource, objects);
+    public TodolistAdapter(Context context, List<Todolist> objects) {
+        super(context, 0, objects);
     }
+
+    private Activity mActivity;
 
     @NonNull
     @Override
@@ -31,10 +34,10 @@ public class TodolistAdapter extends ArrayAdapter<Todolist> {
             convertView = LayoutInflater.from(getContext())
                     .inflate(R.layout.layout_todolist,parent,false);
         }
-        TextView txvId = (TextView) convertView.findViewById(R.id.id);
+//        TextView txvId = (TextView) convertView.findViewById(R.id.id);
         TextView txvJudul = (TextView) convertView.findViewById(R.id.judul);
         TextView txvDeskripsi = (TextView) convertView.findViewById(R.id.deskripsi);
-        txvId.setText(todolist.getIdtdl().toString());
+//        txvId.setText(todolist.getIdtdl().toString());
         txvJudul.setText(todolist.getJudul());
         txvDeskripsi.setText(todolist.getDeskripsi());
 
@@ -57,6 +60,11 @@ public class TodolistAdapter extends ArrayAdapter<Todolist> {
         return convertView;
     }
 
+    public Activity getmActivity() {
+        return mActivity;
+    }
 
-
+    public void setmActivity(Activity mActivity) {
+        this.mActivity = mActivity;
+    }
 }
