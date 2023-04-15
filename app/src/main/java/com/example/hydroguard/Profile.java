@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Profile extends Fragment {
 
     FirebaseAuth auth;
-    Button button;
+    LinearLayout button;
     FirebaseUser user;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -73,7 +74,7 @@ public class Profile extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_profile,container,false);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
-        button = (Button) rootView.findViewById(R.id.btnLogout);
+        button = (LinearLayout) rootView.findViewById(R.id.btnLogout);
         if (user == null){
             Intent intent = new Intent(getActivity(),Login.class);
             startActivity(intent);
