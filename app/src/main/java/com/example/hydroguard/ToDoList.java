@@ -7,6 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import com.example.hydroguard.adapter.TodolistAdapter;
+import com.example.hydroguard.model.Todolist;
+
+import java.util.ArrayList;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +33,7 @@ public class ToDoList extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private TodolistAdapter adapter;
     public ToDoList() {
         // Required empty public constructor
     }
@@ -58,7 +68,22 @@ public class ToDoList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        Realm realm = Realm.getDefaultInstance();
+        //penarikan data
+        RealmResults<Todolist> toDoList =
+                realm.where(Todolist.class).findAll();
+        //menampilkan data
+//        for(User user : users){
+//            Log.d("TAG","Nama :"+user.getNama()
+//                    + ", Nomor Telp"+ user.getNotlp());
+//        }
+        ArrayList<Todolist> arrayofuser = new ArrayList<Todolist>();
+        arrayofuser.addAll(realm.copyFromRealm(toDoList));
+        realm.close();
+
+        TodolistAdapter todolistadapter = new TodolistAdapter(getContext(), 0, arrayofuser);
+        ListView listView = (ListView) getActivity().findViewById(R.id.listviewtodolist);
+        listView.setAdapter(todolistadapter);
         return inflater.inflate(R.layout.fragment_to_do_list, container, false);
     }
 }

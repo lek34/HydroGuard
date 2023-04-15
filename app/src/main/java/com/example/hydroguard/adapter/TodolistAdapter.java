@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,8 +16,8 @@ import com.example.hydroguard.model.Todolist;
 import java.util.List;
 
 public class TodolistAdapter extends ArrayAdapter<Todolist> {
-    public TodolistAdapter(Context context,  List<Todolist> objects) {
-        super(context, 0, objects);
+    public TodolistAdapter(Context context, int resource, List<Todolist> objects) {
+        super(context, resource, objects);
     }
 
     @NonNull
