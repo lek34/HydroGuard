@@ -6,9 +6,10 @@
     tools:context=".ToDoList">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="ToDoList" />
+        android:id="@+id/listviewtodolist"
+        tools:listitem="@layout/layout_todolist"/>
 
 </FrameLayout>
