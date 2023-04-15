@@ -16,9 +16,6 @@ public class Todolist extends RealmObject{
     @Required
     private String judul;
 
-    @Required
-    @Size(max = 200)
-    private String pembuat;
 
     private String deskripsi;
 
@@ -26,10 +23,9 @@ public class Todolist extends RealmObject{
     public Todolist() {
     }
 
-    public Todolist(Integer idtdl, String judul, String pembuat, String deskripsi) {
+    public Todolist(Integer idtdl, String judul, String deskripsi) {
         this.idtdl = idtdl;
         this.judul = judul;
-        this.pembuat = pembuat;
         this.deskripsi = deskripsi;
     }
 
@@ -47,14 +43,6 @@ public class Todolist extends RealmObject{
 
     public void setJudul(String judul) {
         this.judul = judul;
-    }
-
-    public String getPembuat() {
-        return pembuat;
-    }
-
-    public void setPembuat(String pembuat) {
-        this.pembuat = pembuat;
     }
 
     public String getDeskripsi() {
