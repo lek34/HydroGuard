@@ -10,6 +10,7 @@
 
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/textView23"
         android:layout_width="match_parent"
@@ -22,16 +23,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="641dp"
+        android:layout_height="620dp"
         android:orientation="vertical">
 
-            <ListView
-                android:id="@+id/listviewtodolist"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:listitem="@layout/layout_todolist">
+        <ListView
+            android:id="@+id/listviewtodolist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/layout_todolist">
 
-            </ListView>
+        </ListView>
+
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -39,6 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:clickable="true"
         android:src="@drawable/baseline_add_24" />
