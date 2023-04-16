@@ -1,5 +1,7 @@
 package com.example.hydroguard;
 
+import static io.realm.Realm.getApplicationContext;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -7,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.hydroguard.model.Todolist;
 
@@ -62,7 +65,7 @@ public class tambahToDolist extends AppCompatActivity {
                     user1.setDeskripsi(Deskripsi);
                     finish();
                 }catch(RealmPrimaryKeyConstraintException e) {
-                    Log.d("TAG", "PrimaryKey Sudah Ada"+e.getMessage().toString());
+                    Toast.makeText(getApplicationContext(),"ID telah terdaftar! Mohon gunakan ID lain!",Toast.LENGTH_LONG).show();
                 }
             }
         });

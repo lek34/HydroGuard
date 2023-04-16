@@ -26,7 +26,7 @@ public class todolistCRUD {
         });
         realm.close();
     }
-    public void deleteDataUser(Integer id) {
+    public void deleteTodolist(Integer id) {
         Realm realm = Realm.getDefaultInstance();
         //Update data
 
@@ -34,11 +34,10 @@ public class todolistCRUD {
             @Override
             public void execute(Realm realm) {
                 try{
-                    Log.d("TAG", "ID Buku" + id);
-                    Todolist user1 = realm.where(Todolist.class).equalTo("idtdl", id).findFirst();
-                    user1.deleteFromRealm();
-                }catch(RealmPrimaryKeyConstraintException e) {
-                    Log.d("TAG", "PrimaryKey Sudah Ada"+e.getMessage().toString());
+                    Todolist todolist1 = realm.where(Todolist.class).equalTo("idtdl", id).findFirst();
+                    todolist1.deleteFromRealm();
+                }catch(Exception e) {
+                    Log.d("TAG", "Error" + e.getMessage().toString());
                 }
             }
         });

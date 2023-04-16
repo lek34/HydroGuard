@@ -30,6 +30,7 @@ public class TodolistAdapter extends ArrayAdapter<Todolist> {
     @Override
     public View getView(int position,  View convertView,  ViewGroup parent) {
         Todolist todolist =getItem(position);
+
         if(convertView==null) {
             convertView = LayoutInflater.from(getContext())
                     .inflate(R.layout.layout_todolist,parent,false);
@@ -41,9 +42,9 @@ public class TodolistAdapter extends ArrayAdapter<Todolist> {
         txvJudul.setText(todolist.getJudul());
         txvDeskripsi.setText(todolist.getDeskripsi());
 
-        ImageView btnEdit = (ImageView) convertView.findViewById(R.id.edit);
+        ImageView imgBtnEdit = (ImageView) convertView.findViewById(R.id.edit);
 
-        btnEdit.setOnClickListener(new View.OnClickListener() {
+        imgBtnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(getContext(), EditToDoList.class);
@@ -55,7 +56,17 @@ public class TodolistAdapter extends ArrayAdapter<Todolist> {
         });
 
 
-        ImageView btnDelete = (ImageView) convertView.findViewById(R.id.delete);
+        ImageView imgBtnDelete = (ImageView) convertView.findViewById(R.id.delete);
+
+        imgBtnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                todolistCRUD todolistcrud = new todolistCRUD();
+                todolistcrud.deleteTodolist(todolist.getIdtdl());
+
+                notifyDataSetChanged();
+            }
+        });
 
         return convertView;
     }
