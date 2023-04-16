@@ -9,57 +9,134 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/textView25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:fontFamily="@font/bold"
             android:text="About Us"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="#276A22"
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/textView27"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/bold"
             android:text="We’re always work in Teams!"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="#64A154"
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/textView28"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="We are the team who want to give a good impact on the environment around us" />
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/regular"
+            android:text="We are the team who want to give a good impact on the environment around us"
+            android:textAlignment="center"
+            android:textColor="#263238"
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/textView29"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Support" />
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/bold"
+            android:text="Support"
+            android:textAlignment="center"
+            android:textColor="#8DC07B"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/textView31"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="You have a lot of Questions? Worry no more Our friend team is here to help" />
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/regular"
+            android:text="You have a lot of Questions? Worry no more Our friend team is here to help"
+            android:textAlignment="center"
+            android:textColor="#263238" />
 
         <TextView
             android:id="@+id/textView32"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="support@hydroguard.com " />
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/regular"
+            android:text="support@hydroguard.com "
+            android:textAlignment="center"
+            android:textColor="#64A154" />
 
         <TextView
             android:id="@+id/textView33"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/bold"
+            android:text="Phone"
+            android:textAlignment="center"
+            android:textColor="#8DC07B"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/textView34"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/regular"
+            android:text="Monday to Friday from 8 am to 5 pm"
+            android:textAlignment="center"
+            android:textColor="#263238" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/regular"
+            android:text="+62 1234567891"
+            android:textAlignment="center"
+            android:textColor="#64A154" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/bold"
+            android:text="Our Location"
+            android:textAlignment="center"
+            android:textColor="#8DC07B"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/regular"
+            android:text="Visit our offices and find us at this locations."
+            android:textAlignment="center"
+            android:textColor="#263238" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/regular"
+            android:text="Jalan Adam Malik No.01, Kota Medan, Sumatera"
+            android:textAlignment="center"
+            android:textColor="#64A154" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
