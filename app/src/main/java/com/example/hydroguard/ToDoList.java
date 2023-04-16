@@ -1,5 +1,6 @@
 package com.example.hydroguard;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -65,6 +66,9 @@ public class ToDoList extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -74,6 +78,15 @@ public class ToDoList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+//        Fragment currentFragment = getActivity().getFragmentManager().findFragmentById(R.id.listviewtodolist);
+//
+//        if (currentFragment instanceof "NAME OF YOUR FRAGMENT CLASS") {
+//            FragmentTransaction fragTransaction =   (getActivity()).getFragmentManager().beginTransaction();
+//            fragTransaction.detach(currentFragment);
+//            fragTransaction.attach(currentFragment);
+//            fragTransaction.commit();
+//        }
 
         // Inflate the fragment's layout
         View rootView = inflater.inflate(R.layout.fragment_to_do_list, container, false);
