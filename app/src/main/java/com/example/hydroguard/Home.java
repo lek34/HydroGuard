@@ -29,50 +29,6 @@ import io.realm.mongodb.App;
 
 public class Home extends Fragment {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_home);
-
-        ImageButton btnPh = (ImageButton) findViewById(R.id.btnPh);
-        ImageButton btnNutrition = (ImageButton) findViewById(R.id.btnNutrition);
-        ImageButton btnTemp = (ImageButton) findViewById(R.id.btnTemp);
-        ImageButton btnFan = (ImageButton) findViewById(R.id.btnFan);
-
-        btnPh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ph.class);
-                startActivity(intent);
-            }
-        });
-
-        btnNutrition.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Nutrition.class);
-                startActivity(intent);
-            }
-        });
-
-        btnFan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ef.class);
-                startActivity(intent);
-            }
-        });
-
-        btnTemp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), temp.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -135,6 +91,43 @@ public class Home extends Fragment {
         String username = getActivity().getIntent().getStringExtra("username");
         // Set the username on the TextView
         textViewUsername.setText(username);
+
+        ImageButton btnPh = (ImageButton) view.findViewById(R.id.btnPh);
+        ImageButton btnNutrition = (ImageButton) view.findViewById(R.id.btnNutrition);
+        ImageButton btnTemp = (ImageButton) view.findViewById(R.id.btnTemp);
+        ImageButton btnFan = (ImageButton) view.findViewById(R.id.btnFan);
+
+        btnPh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ph.class);
+                startActivity(intent);
+            }
+        });
+
+        btnNutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Nutrition.class);
+                startActivity(intent);
+            }
+        });
+
+        btnFan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ef.class);
+                startActivity(intent);
+            }
+        });
+
+        btnTemp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), temp.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
