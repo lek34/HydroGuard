@@ -11,9 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.example.hydroguard.EditToDoList;
 import com.example.hydroguard.R;
+import com.example.hydroguard.ToDoList;
 import com.example.hydroguard.crud.todolistCRUD;
 import com.example.hydroguard.model.Todolist;
 

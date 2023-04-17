@@ -74,11 +74,6 @@
                         android:textColor="#263238" />
                 </LinearLayout>
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:background="@color/secondary"
-                />
         </LinearLayout>
 
         <LinearLayout
@@ -124,11 +119,7 @@
                         android:textColor="#263238" />
 
                 </LinearLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/secondary"
-                    />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -146,11 +137,7 @@
                         android:text="Guide"
                         android:textColor="#263238" />
                 </LinearLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/secondary"
-                    />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -170,13 +157,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-
-                android:background="@color/secondary"
-
-                />
         </LinearLayout>
 
         <LinearLayout

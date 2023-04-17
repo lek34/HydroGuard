@@ -70,28 +70,10 @@ public class ToDoList extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        onRefresh();
-        Log.d("TAG", "aaa");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
-
-    public void onRefresh() {
-        Realm realm = Realm.getDefaultInstance();
-        RealmResults<Todolist> users = realm.where(Todolist.class).findAll();
-
-        todolistArrayList = new ArrayList<Todolist>();
-        todolistArrayList.addAll(realm.copyFromRealm(users));
-        realm.close();
-
-        TodolistAdapter userAdapter = new TodolistAdapter(getContext(), todolistArrayList);
-        userAdapter.setmActivity(getActivity());
-        ListView listView = (ListView) getActivity().findViewById(R.id.listviewtodolist);
-        listView.setAdapter(userAdapter);
-        // Once the refresh is complete, stop the refreshing animation
-        swipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
@@ -124,6 +106,7 @@ public class ToDoList extends Fragment {
                 userAdapter.setmActivity(getActivity());
                 ListView listView = (ListView) rootView.findViewById(R.id.listviewtodolist);
                 listView.setAdapter(userAdapter);
+
                 // Once the refresh is complete, stop the refreshing animation
                 swipeRefreshLayout.setRefreshing(false);
             }
@@ -145,5 +128,21 @@ public class ToDoList extends Fragment {
         listView.setAdapter(todolistAdapter);
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Realm realm = Realm.getDefaultInstance();
+        RealmResults<Todolist> users = realm.where(Todolist.class).findAll();
+
+        todolistArrayList = new ArrayList<Todolist>();
+        todolistArrayList.addAll(realm.copyFromRealm(users));
+        realm.close();
+
+        TodolistAdapter userAdapter = new TodolistAdapter(getContext(), todolistArrayList);
+        userAdapter.setmActivity(getActivity());
+        ListView listView = (ListView) getView().findViewById(R.id.listviewtodolist);
+        listView.setAdapter(userAdapter);
     }
 }
