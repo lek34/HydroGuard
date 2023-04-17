@@ -1,5 +1,6 @@
 package com.example.hydroguard;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,16 +9,70 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+
 import java.util.Objects;
+
+import io.realm.mongodb.App;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Home#newInstance} factory method to
  * create an instance of this fragment.
  */
+
+
+
+
 public class Home extends Fragment {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_home);
+
+        ImageButton btnPh = (ImageButton) findViewById(R.id.btnPh);
+        ImageButton btnNutrition = (ImageButton) findViewById(R.id.btnNutrition);
+        ImageButton btnTemp = (ImageButton) findViewById(R.id.btnTemp);
+        ImageButton btnFan = (ImageButton) findViewById(R.id.btnFan);
+
+        btnPh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ph.class);
+                startActivity(intent);
+            }
+        });
+
+        btnNutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Nutrition.class);
+                startActivity(intent);
+            }
+        });
+
+        btnFan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ef.class);
+                startActivity(intent);
+            }
+        });
+
+        btnTemp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), temp.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +85,7 @@ public class Home extends Fragment {
 
     public Home() {
         // Required empty public constructor
+
     }
 
     /**
@@ -50,9 +106,11 @@ public class Home extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // Hide the app bar
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         // Set the SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN flag on the decor view
@@ -62,6 +120,8 @@ public class Home extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override

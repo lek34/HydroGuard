@@ -24,6 +24,21 @@
             android:name=".tambahToDolist"
             android:exported="false" />
         <activity
+            android:name=".temp"
+            android:exported="false" />
+        <activity
+            android:name=".Nutrition"
+            android:exported="false" />
+        <activity
+            android:name=".ef"
+            android:exported="false" />
+        <activity
+            android:name=".ph"
+            android:exported="false" />
+        <activity
+            android:name=".editActivity"
+            android:exported="false" />
+        <activity
             android:name=".NavBar"
             android:exported="false"
             android:label="@string/title_activity_nav_bar">
@@ -40,6 +55,13 @@
         </activity>
         <activity
             android:name=".Login"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".login"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
