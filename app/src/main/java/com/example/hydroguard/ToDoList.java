@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +39,9 @@ public class ToDoList extends Fragment {
     private String mParam2;
 
     private TodolistAdapter adapter;
+
+    ArrayList<Todolist> todolistArrayList;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     ArrayList<Todolist> arrayoftodo;
 
@@ -89,6 +93,25 @@ public class ToDoList extends Fragment {
             }
         });
 
+        swipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Realm realm = Realm.getDefaultInstance();
+                RealmResults<Todolist> users = realm.where(Todolist.class).findAll();
+
+                todolistArrayList = new ArrayList<Todolist>();
+                todolistArrayList.addAll(realm.copyFromRealm(users));
+                realm.close();
+
+                TodolistAdapter userAdapter = new TodolistAdapter(getContext(), todolistArrayList);
+                userAdapter.setmActivity(getActivity());
+                ListView listView = (ListView) rootView.findViewById(R.id.listviewtodolist);
+                listView.setAdapter(userAdapter);
+                // Once the refresh is complete, stop the refreshing animation
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         // Find the ListView by ID in the inflated layout
         ListView listView = rootView.findViewById(R.id.listviewtodolist);
