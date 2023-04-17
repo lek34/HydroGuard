@@ -6,12 +6,12 @@ import android.os.Bundle;
 
 import java.util.Objects;
 
-public class AboutUs extends AppCompatActivity {
+public class ph extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_us);
+        setContentView(R.layout.activity_ph);
         Objects.requireNonNull(getSupportActionBar()).hide();
     }
 }

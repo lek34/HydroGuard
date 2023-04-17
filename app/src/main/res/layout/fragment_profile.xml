@@ -28,7 +28,7 @@
             android:textSize="30dp" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/txvEmail"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:text="winaralex417@gmail.com"
@@ -74,6 +74,11 @@
                         android:textColor="#263238" />
                 </LinearLayout>
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/secondary"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -93,12 +98,15 @@
                 android:text="About"
                 android:textColor="#263238" />
 
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/btnAbout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -114,8 +122,13 @@
                         android:fontFamily="@font/semibold"
                         android:text="About Us"
                         android:textColor="#263238" />
-                </LinearLayout>
 
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/shadow"
+                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -133,7 +146,11 @@
                         android:text="Guide"
                         android:textColor="#263238" />
                 </LinearLayout>
-
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/shadow"
+                    />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -152,6 +169,14 @@
                         android:textColor="#263238" />
                 </LinearLayout>
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+
+                android:background="@color/secondary"
+
+                />
         </LinearLayout>
 
         <LinearLayout

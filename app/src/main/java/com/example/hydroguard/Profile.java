@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,6 +25,8 @@ public class Profile extends Fragment {
 
     FirebaseAuth auth;
     LinearLayout button;
+
+    LinearLayout button2;
     FirebaseUser user;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -79,7 +82,7 @@ public class Profile extends Fragment {
             Intent intent = new Intent(getActivity(),Login.class);
             startActivity(intent);
         }
-
+        button2 = (LinearLayout) rootView.findViewById(R.id.btnAbout);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,6 +91,20 @@ public class Profile extends Fragment {
                 startActivity(intent);
             }
         });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AboutUs.class);
+                startActivity(intent);
+            }
+        });
+        // Retrieve the TextView
+        TextView textViewUsername = (TextView) rootView.findViewById(R.id.txvEmail);
+        // Retrieve the username from the intent
+        String username = getActivity().getIntent().getStringExtra("username");
+
+        textViewUsername.setText(username);
 
         return rootView;
     }
