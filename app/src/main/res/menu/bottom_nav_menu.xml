@@ -11,10 +11,10 @@
         android:icon="@drawable/ic_baseline_calendar_month_24"
         android:title="Todolist" />
 
-    <item
-        android:id="@+id/navigation_history"
-        android:icon="@drawable/ic_baseline_history_24"
-        android:title="History" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_history"-->
+<!--        android:icon="@drawable/ic_baseline_history_24"-->
+<!--        android:title="History" />-->
 
     <item
         android:id="@+id/navigation_profile"

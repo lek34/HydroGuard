@@ -18,10 +18,10 @@
             android:name=".EditToDoList"
             android:exported="false" />
         <activity
-            android:name=".tambahToDolist"
+            android:name=".AboutUs"
             android:exported="false" />
         <activity
-            android:name=".Todolistinquiry"
+            android:name=".tambahToDolist"
             android:exported="false" />
         <activity
             android:name=".NavBar"
@@ -45,6 +45,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
