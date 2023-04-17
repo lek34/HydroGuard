@@ -70,6 +70,7 @@ public class ToDoList extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        onRefresh();
         Log.d("TAG", "aaa");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -77,10 +78,25 @@ public class ToDoList extends Fragment {
         }
     }
 
+    public void onRefresh() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmResults<Todolist> users = realm.where(Todolist.class).findAll();
+
+        todolistArrayList = new ArrayList<Todolist>();
+        todolistArrayList.addAll(realm.copyFromRealm(users));
+        realm.close();
+
+        TodolistAdapter userAdapter = new TodolistAdapter(getContext(), todolistArrayList);
+        userAdapter.setmActivity(getActivity());
+        ListView listView = (ListView) getActivity().findViewById(R.id.listviewtodolist);
+        listView.setAdapter(userAdapter);
+        // Once the refresh is complete, stop the refreshing animation
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the fragment's layout
         View rootView = inflater.inflate(R.layout.fragment_to_do_list, container, false);
 
