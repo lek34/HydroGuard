@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hydroguard.crud.todolistCRUD;
 
@@ -24,28 +25,32 @@ public class EditToDoList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_to_do_list);
 
-        txtIdE = (TextView) findViewById(R.id.tvEditId);
+//        txtIdE = (TextView) findViewById(R.id.tvEditId);
         edtJudulE = (EditText) findViewById(R.id.etEditTitle);
         edtDeskripsiE = (EditText) findViewById(R.id.etEditDescription);
         btnSimpanE = (Button) findViewById(R.id.btnEditToDoList);
 
-
-        txtIdE.setText(getIntent().getStringExtra("idtdl"));
         edtJudulE.setText(getIntent().getStringExtra("judul"));
+        String idString = getIntent().getStringExtra("idtdl");
         edtDeskripsiE.setText(getIntent().getStringExtra("deskripsi"));
 
         btnSimpanE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Id = Integer.parseInt(txtIdE.getText().toString());
-                Judul = edtJudulE.getText().toString();
-                Deskripsi = edtDeskripsiE.getText().toString();
+                String description = edtDeskripsiE.getText().toString().toLowerCase();
+                if (description.contains("ph") || description.contains("nutrition") || description.contains("temp") || description.contains("plant") || description.contains("fan")) {
+                    // the description is valid
+                    Id = Integer.parseInt(idString);
 
-
-//               Log.d("TAG", "Nama" + Nama + "Nomor Tlp" + NoTlp);
-                todolistCRUD todolistcrud = new todolistCRUD();
-                todolistcrud.updateTodolist(Id, Judul, Deskripsi);
-                finish();
+                    Judul = edtJudulE.getText().toString();
+                    Deskripsi = edtDeskripsiE.getText().toString();
+                    todolistCRUD todolistcrud = new todolistCRUD();
+                    todolistcrud.updateTodolist(Id, Judul, Deskripsi);
+                    finish();
+                } else {
+                    // the description is invalid
+                    Toast.makeText(getApplicationContext(), "Invalid Description", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

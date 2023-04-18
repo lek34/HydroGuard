@@ -28,6 +28,7 @@ public class TodolistAdapter extends ArrayAdapter<Todolist> {
 
     private Activity mActivity;
 
+
     @NonNull
     @Override
     public View getView(int position,  View convertView,  ViewGroup parent) {

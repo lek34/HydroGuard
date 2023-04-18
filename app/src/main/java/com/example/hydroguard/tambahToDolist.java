@@ -25,32 +25,38 @@ public class tambahToDolist extends AppCompatActivity {
     String Judul = "";
     String Deskripsi = "";
 
-
+    long nextId = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_to_dolist);
 
-        edtId = (EditText) findViewById(R.id.etAddId);
+//      edtId = (EditText) findViewById(R.id.etAddId);
         edtJudul = (EditText) findViewById(R.id.etAddTitle);
         edtDeskripsi = (EditText) findViewById(R.id.etAddDescription);
-
         btnSimpan = (Button) findViewById(R.id.btnAddToDoList);
-
+        String description = edtDeskripsi.getText().toString().toLowerCase();
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                id = Integer.parseInt(edtId.getText().toString());
-                Judul = edtJudul.getText().toString();
-                Deskripsi = edtDeskripsi.getText().toString();
-
-                tambahTodolist(id, Judul, Deskripsi);
+                String description = edtDeskripsi.getText().toString().toLowerCase();
+                if (description.contains("ph") || description.contains("nutrition") || description.contains("temp") || description.contains("plant") || description.contains("fan")) {
+                    // the description is valid
+                    Judul = edtJudul.getText().toString();
+                    Deskripsi = edtDeskripsi.getText().toString();
+                    tambahTodolist(Judul, Deskripsi);
+                } else {
+                    // the description is invalid
+                    Toast.makeText(getApplicationContext(), "Invalid Description", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
+
+
     }
-    public void tambahTodolist(Integer id, String Judul, String Deskripsi) {
+    public void tambahTodolist(String Judul, String Deskripsi) {
 
         Realm realm = Realm.getDefaultInstance();
         //penyimpanan data
@@ -59,8 +65,11 @@ public class tambahToDolist extends AppCompatActivity {
             @Override
             public void execute(Realm realm) {
                 try{
-                    Log.d("TAG", "ID " + id + "Judul" + Judul + "Deskripsi" + Deskripsi);
-                    Todolist user1 = realm.createObject(Todolist.class, id);
+//                    Log.d("TAG", "ID " + id + "Judul" + Judul + "Deskripsi" + Deskripsi);
+                    // increment index
+                    Number maxId = realm.where(Todolist.class).max("idtdl");
+                    nextId = (maxId != null) ? (maxId.longValue() + 1) : 1;
+                    Todolist user1 = realm.createObject(Todolist.class, nextId);
                     user1.setJudul(Judul);
                     user1.setDeskripsi(Deskripsi);
                     finish();
